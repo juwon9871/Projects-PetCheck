@@ -1,4 +1,4 @@
-<h1>메인</h1>
+<h1>메인 & 챗봇</h1>
 
 ![main](https://github.com/juwon9871/Projects-PetCheck/assets/133927434/7350775f-5c44-4397-b13c-c113b96b38dc)
 
