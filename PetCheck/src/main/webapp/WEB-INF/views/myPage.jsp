@@ -10,25 +10,119 @@
   <title>MyPage</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/myPage.css">
   <link rel="stylesheet" href="resources/css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
-  <link rel="stylesheet" href="resources/css/myPage.css">
-  
+  <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+  <link href="resources/vendor/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+  <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<!-- GLOBAL MANDATORY STYLES -->
+  <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+  <link href="resources/vendor/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+  <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+<!-- PAGE LEVEL PLUGIN STYLES -->
+  <link href="resources/css/animate.css" rel="stylesheet">
+  <link href="resources/vendor/swiper/css/swiper.min.css" rel="stylesheet" type="text/css" />
+
+<!-- THEME STYLES -->
+  <link href="resources/css/layout.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Favicon -->
+  <link rel="shortcut icon" href="favicon.ico" />
+<!-- <link rel="stylesheet" href="resources/css/btn.css"> -->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+  <link href="resources/vendor/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+  <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> -->
+  <style type="text/css">
+  .updatePet {
+  	margin-left: 15px;
+  	color: #fff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, #e6c3cd, #e6c3cd);
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    text-align: center;
+    font-family: 'RIDIBatang';
+    display: inline-block;
+  }
+  </style>
 </head>
 <body>
+<!--========== HEADER ==========-->
+	<header class="header" style="background-color: #FFFAF3;">
+		<!-- Navbar -->
+		<nav class="navbar" role="navigation">
+			<div class="logo">
+			  <a class="logo-wrap" href="${cpath}/main.do"> 
+			  <img class="logo-img logo-img-main" src="resources/img/nocatlogo.png" alt="로고" style="width: 110px;">
+			  </a>
+			</div>
+			 <div class="menu-container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+			   <div class="menu-container">
+				 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+				   <span class="sr-only">Toggle navigation</span> 
+				   <span class="toggle-icon"></span>
+			     </button>
+			   </div>
 
+				<!-- 네비게이션 -->
+				<div class="collapse navbar-collapse nav-collapse">
+					<div class="menu-container">
+						<ul class="navbar-nav navbar-nav-right">
+							<li class="nav-item">
+							<a class="nav-item-child nav-item-hover" href="${cpath}/upload.do">자가진단</a></li>
+							<li class="nav-item">
+							<a class="nav-item-child nav-item-hover" href="${cpath}/login.do">다이어리</a></li>
+							<li class="nav-item">
+							<a class="nav-item-child nav-item-hover" href="${cpath}/hospital.do">병원검색</a></li>
+							<li class="nav-item">
+							<a class="nav-item-child nav-item-hover" href="${cpath}/postList.do">게시판</a></li>
+							<li class="nav-item">
+							<a class="nav-item-child nav-item-hover">|</a></li>
+							<c:if test="${empty mvo}">
+						    <li class="nav-item">
+							<a class="nav-item-child nav-item-hover" href="${cpath}/login.do">로그인</a></li>
+							<li class="nav-item">
+							<a class="nav-item-child nav-item-hover"
+							href="${cpath}/memberjoin.do">회원가입</a></li>
+							</c:if>
+							
+							<c:if test="${!empty mvo}">
+							<li class="nav-item">
+							<a class="nav-item-child nav-item-hover" href="${cpath}/logout.do">로그아웃</a></li>
+							<li class="nav-item">
+							<a class="nav-item-child nav-item-hover" href="${cpath}/myPage.do?idx=${mvo.idx}">내 정보</a></li>
+							</c:if>
+						</ul>
+					</div>
+				</div><!-- End Navbar Collapse -->
+			</div>
+		</nav> <!-- End Navbar -->
+	</header>
+	
   <div class="main">
    <c:if test="${!empty mvo}">
      <div class="pet-modify" onclick="togglePet('petInfo')">
-      <p class="petinformation" align="center">펫 정보 수정하기</p>
+      <p class="petinformation" align="center">펫 정보</p>
      </div> 
      <br>
-     <div class="petInfo" style="display: none;">
+     <div class="petInfo">
        <div class="main_swiper">
         <div class="swiper-container">
           <div class="swiper-wrapper">
@@ -52,9 +146,9 @@
                 <!-- pet 이름, 종, 성별, 생년월일 -->
                 <c:if test="${vo.pet_gender == '남아'}">
                   <div class="petName">
-                    <p style="font-size: 25px;">${vo.pet_name}</p><button class="updatePet" onclick="redirectToEdit(${vo.pet_seq})">수정</button>
+                    <p style="font-size: 25px;">${vo.pet_name}</p><button type="button" class="updatePet" onclick="redirectToEdit(${vo.pet_seq})">수정</button>
              <!--        <br> -->
-                    <p style="color: hotpink; font-size: 18px; font-weight: 400;">♂</p>
+                    <p style="color: blue; font-size: 20px; font-weight: 1000;">♂</p>
                     <div class="petIntro">
                       <p>${vo.pet_race}</p>
                       <p>${vo.pet_birthdate}</p>
@@ -63,7 +157,7 @@
                 </c:if>
                 <c:if test="${vo.pet_gender == '여아'}">
                  <div class="petName">
-                   <p style="font-size: 30px;">${vo.pet_name}</p><button class="updatePet" onclick="redirectToEdit(${vo.pet_seq})">수정</button>
+                   <p style="font-size: 30px;">${vo.pet_name}</p><button type="button" class="updatePet" onclick="redirectToEdit(${vo.pet_seq})">수정</button>
                    <br>
                    <p style="color: hotpink;font-size: 20px;font-weight: 1000;">♀</p>
                     <div class="petIntro">
@@ -124,15 +218,15 @@
       <div class="openInfo" onclick="toggleInfo('memberModify')">
           <p class="my-information" align="center">내 정보 수정하기</p>
       </div>
-      <div class="memberModify" style="display: none;">
+      <div class="memberModify">
         <div class="myinformation">
             <form id="form" class="form" action="${cpath}/updateInfo" method="post">
                 <input type="hidden" name="idx" value="${mvo.idx}"/>
                 <input type="text" class="in-put" name="id" id="id" value="${mvo.id}" readonly="readonly"/>
-                <div class="strongpw-message hide" style="text-align: center;">비밀번호는 8~15자, 영문, 숫자, 특수문자를 사용하세요.</div>
                 <input type="password" class="in-put" name="pw" id="pw" placeholder="변경할 비밀번호를 입력하세요"/>
-            	<div class="strongnick-message hide" style="text-align: center;">닉네임은 최소 2글자 이상이어야 합니다.</div>
+                <div class="strongpw-message hide" style="padding-left: 40px;">비밀번호는 8~15자, 영문, 숫자, 특수문자를 사용하세요.</div>
                 <input type="text" class="in-put" name="nick" id="nick" value="${mvo.nick}"/>
+            	<div class="strongnick-message hide" style="padding-left: 90px;">닉네임은 최소 2글자 이상이어야 합니다.</div>
          <button type="button" class="success" onclick="update();">수정 완료</button>
             </form>
        </div>

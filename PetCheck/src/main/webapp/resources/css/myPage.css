@@ -33,14 +33,12 @@
   .pet-modify{
    position: relative;
    display: block;
-   top: 30px;
    left: 10px;
   }
   
   .petinformation {
    left: 190px;
    display: block;
-   position: absolute;
    padding: 0px 200px 10px 210px;
    color : #d7b0bb;
    font-family: 'RIDIBatang';
@@ -50,6 +48,17 @@
    margin:0px; 
    }
    
+   .petUpdateInfo {
+   left: 190px;
+   display: block;
+   padding: 50px 200px 10px 210px;
+   color : #d7b0bb;
+   font-family: 'RIDIBatang';
+   font-weight: bold;
+   font-size: 25px;
+   color: #d7b0bb;
+   margin:0px; 
+   }
    .my-information {
     left: 200px;
     top: 510px;
@@ -71,7 +80,6 @@
   
    height: 150px;
    display: flex;
-   top: 40px;  
    justify-content: center;
    align-items: center;
    font-size: 10px;
@@ -149,7 +157,6 @@
 }
  
  .addpetBtn{
-  top: 450px;
   position: absolute;
   display: inline-block;
   left: 300px;

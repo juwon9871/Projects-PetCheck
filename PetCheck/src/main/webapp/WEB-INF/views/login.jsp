@@ -110,12 +110,10 @@
       <p class="sign" align="center">Sign in</p>
       <div class="login">
          <form action="${cpath}/login.do" method="post" name="form1" class="form1">
+            <input type="text" id="id" name="id" class="un" align="center" placeholder="아이디를 입력해주세요"> 
             <div class="failure-message hide" style="text-align: center;">아이디는 4~12자 사이로 입력해 주세요.</div>
-            <input type="text" id="id" name="id" class="un" align="center"
-               placeholder="아이디를 입력해주세요"> 
+             <input type="password" id="pw" name="pw" class="pass" placeholder="비밀번호를 입력해주세요"> 
              <div class="strongpw-message hide" style="text-align: center;">비밀번호는 8~15자 사이로 입력해 주세요.</div> 
-             <input type="password" id="pw"
-               name="pw" class="pass" placeholder="비밀번호를 입력해주세요"> 
              <button id="login_submit" type="button" class="submit" align="center" onclick="loginChk();">로그인하기</button><br><br>
          </form>
       </div>

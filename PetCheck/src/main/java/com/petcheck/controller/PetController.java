@@ -56,7 +56,6 @@ public class PetController {
 	        String originalFilename = petImageFile.getOriginalFilename();
 	        String extension = originalFilename.substring(originalFilename.lastIndexOf("."));
 	        String uniqueFilename = UUID.randomUUID().toString() + extension;
-
 	        try {
 	            // 이미지 파일 저장
 	            Path filePath = Paths.get(uploadDir, uniqueFilename);

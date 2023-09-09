@@ -403,5 +403,6 @@ insert into t_post (post_title, post_content, created_at, post_views, id)
 values('자가검진 정말 편리하고 좋아요', '리얼', now(),0,'moomoo')
 insert into t_post (post_title, post_content, created_at, post_views, id)
 values('강아지 사료 추천받아용', '제곧내', now(),0,'moomoo2')
-
+ALTER TABLE t_pet MODIFY COLUMN pet_img varchar(600) NULL;
+select * from t_pet;
 drop 

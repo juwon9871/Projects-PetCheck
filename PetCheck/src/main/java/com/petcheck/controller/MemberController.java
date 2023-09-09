@@ -72,7 +72,6 @@ public class MemberController {
 		if (mvo != null) {
 			session.setAttribute("mvo", mvo);
 			List<InviteVO> list = mapper.invitationList(vo);
-			System.out.println("invitationlist -->" + list);
 			session.setAttribute("list", list);
 
 			return "redirect:/main.do";

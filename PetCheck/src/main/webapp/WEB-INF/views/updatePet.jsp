@@ -10,29 +10,125 @@
   <title>MyPage</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/myPage.css">
   <link rel="stylesheet" href="resources/css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
-  <link rel="stylesheet" href="resources/css/myPage.css">
-  
+  <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+  <link href="resources/vendor/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+  <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<!-- GLOBAL MANDATORY STYLES -->
+  <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+  <link href="resources/vendor/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+  <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+<!-- PAGE LEVEL PLUGIN STYLES -->
+  <link href="resources/css/animate.css" rel="stylesheet">
+  <link href="resources/vendor/swiper/css/swiper.min.css" rel="stylesheet" type="text/css" />
+
+<!-- THEME STYLES -->
+  <link href="resources/css/layout.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Favicon -->
+  <link rel="shortcut icon" href="favicon.ico" />
+<!-- <link rel="stylesheet" href="resources/css/btn.css"> -->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
+   <style type="text/css">
+   .petbtn {
+   	margin: 0px 60px 10px 60px;
+    width: 300px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, #e6c3cd, #e6c3cd);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    text-align: center;
+    font-family: 'RIDIBatang';
+    display: inline-block;
+   }
+   </style>
 </head>
 <body>
+<!--========== HEADER ==========-->
+	<header class="header" style="background-color: #FFFAF3;">
+		<!-- Navbar -->
+		<nav class="navbar" role="navigation">
+			<div class="logo">
+			  <a class="logo-wrap" href="${cpath}/main.do"> 
+			  <img class="logo-img logo-img-main" src="resources/img/nocatlogo.png" alt="로고" style="width: 110px;">
+			  </a>
+			</div>
+			 <div class="menu-container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+			   <div class="menu-container">
+				 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+				   <span class="sr-only">Toggle navigation</span> 
+				   <span class="toggle-icon"></span>
+			     </button>
+			   </div>
+
+				<!-- 네비게이션 -->
+				<div class="collapse navbar-collapse nav-collapse">
+					<div class="menu-container">
+						<ul class="navbar-nav navbar-nav-right">
+							<li class="nav-item">
+							<a class="nav-item-child nav-item-hover" href="${cpath}/upload.do">자가진단</a></li>
+							<li class="nav-item">
+							<a class="nav-item-child nav-item-hover" href="${cpath}/login.do">다이어리</a></li>
+							<li class="nav-item">
+							<a class="nav-item-child nav-item-hover" href="${cpath}/hospital.do">병원검색</a></li>
+							<li class="nav-item">
+							<a class="nav-item-child nav-item-hover" href="${cpath}/postList.do">게시판</a></li>
+							<li class="nav-item">
+							<a class="nav-item-child nav-item-hover">|</a></li>
+							<c:if test="${empty mvo}">
+						    <li class="nav-item">
+							<a class="nav-item-child nav-item-hover" href="${cpath}/login.do">로그인</a></li>
+							<li class="nav-item">
+							<a class="nav-item-child nav-item-hover"
+							href="${cpath}/memberjoin.do">회원가입</a></li>
+							</c:if>
+							
+							<c:if test="${!empty mvo}">
+							<li class="nav-item">
+							<a class="nav-item-child nav-item-hover" href="${cpath}/logout.do">로그아웃</a></li>
+							<li class="nav-item">
+							<a class="nav-item-child nav-item-hover" href="${cpath}/myPage.do?idx=${mvo.idx}">내 정보</a></li>
+							</c:if>
+						</ul>
+					</div>
+				</div><!-- End Navbar Collapse -->
+			</div>
+		</nav> <!-- End Navbar -->
+	</header>
   <div class="main">
    <c:if test="${!empty mvo}">
-      <p class="petinformation" align="center">펫 정보 수정하기</p>
+      <p class="petUpdateInfo" align="center">펫 정보 수정하기</p>
      <br>
      <br>
-     <form id="updatePet" action="${cpath}/updatePet.do" method="post" enctype="multipart/form-data">
+     <form id="updatePet" action="${cpath}/updatePet.do" method="post" enctype="multipart/form-data" style="text-align: center;">
 			<input type="hidden" name="idx" value="${mvo.idx}">
 			<input type="hidden" name="id" value="${mvo.id}">
 			<input type="hidden" name="pet_seq" value="${vo.pet_seq}">
 			<br>
+			<c:if test="${vo.pet_img == null && vo.pet_race == '고양이'}">
+        		<img id="imagePreview" src="./resources/img/cat.png" alt="Image Preview" style="height: 100px; width: 100px; border-radius: 100%;">
+			</c:if>
+			<c:if test="${vo.pet_img == null && vo.pet_race == '강아지'}">
+        		<img id="imagePreview" src="./resources/img/dog.png" alt="Image Preview" style="height: 100px; width: 100px; border-radius: 100%;">
+			</c:if>
+			<c:if test="${vo.pet_img != null}">
         		<img id="imagePreview" src="${cpath}${vo.pet_img}" alt="Image Preview" style="height: 100px; width: 100px; border-radius: 100%;">
+			</c:if>
 				<br>
 				<br>
 				<input class="in-put" type="file" id="pet_img" name="petImg" value="${vo.pet_img}">
@@ -49,9 +145,9 @@
 			<br>
 				<input class="in-put" id="pet_birthdate" type="date" name="pet_birthdate" value="${vo.pet_birthdate}">
 			<br>
-      	<button class="updatePetbtn" type="submit">펫 수정</button>
+      	<button class="petbtn" type="submit">펫 수정</button>
       	<br>
-      	<button class="deletePet" type="button" data-btn="deletePet" id="deletePet">펫 삭제</button>
+      	<button class="petbtn" type="button" data-btn="deletePet" id="deletePet">펫 삭제</button>
 		</form>
    </c:if>
  </div> <!-- main -->
